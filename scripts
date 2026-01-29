@@ -1,0 +1,8 @@
+#!/bin/bash
+trtexec \
+ --onnx=yolov8.onnx \
+ --fp16 \
+ --minShapes=input:1x3x640x640 \
+ --optShapes=input:4x3x640x640 \
+ --maxShapes=input:8x3x640x640 \
+ --saveEngine=yolov8_fp16.engine
