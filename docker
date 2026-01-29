@@ -1,0 +1,10 @@
+FROM nvcr.io/nvidia/deepstream-l4t:6.3-samples
+
+WORKDIR /opt/app
+COPY deepstream/ ./deepstream/
+COPY models/ ./models/
+
+RUN apt-get update && apt-get install -y python3-pip
+RUN pip3 install redis paho-mqtt
+
+CMD ["deepstream-app", "-c", "deepstream/pipeline.txt"]
